@@ -16,6 +16,15 @@ ext {
     slf4jVersion = '1.7.25'
 }
 
+
+if (org.gradle.internal.os.OperatingSystem.current().isLinux()) {
+    project.ext.lwjglNatives = "natives-linux";
+} else if (org.gradle.internal.os.OperatingSystem.current().isWindows()) {
+    project.ext.lwjglNatives = "natives-windows";
+} else if (org.gradle.internal.os.OperatingSystem.current().isMacOsX()) {
+    project.ext.lwjglNatives = "natives-macos"
+}
+
 test {
     useJUnitPlatform()
 }
@@ -23,6 +32,8 @@ test {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "org.lwjgl:lwjgl-jemalloc:$lwjglVersion"
+    implementation "org.lwjgl:lwjgl:$lwjglVersion"
+    implementation "org.lwjgl:lwjgl:$lwjglVersion:$lwjglNatives"
     implementation "org.slf4j:slf4j-api:$slf4jVersion"
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'

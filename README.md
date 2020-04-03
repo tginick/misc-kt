@@ -10,5 +10,3 @@ These are some Kotlin-based utility classes I wrote way back when I was working 
     * Currently leverages the jemalloc wrapper provided by LWJGL but any allocator that can provide a ByteBuffer can be used.
     * Implements AutoCloseable so short-lived buffers can be cleaned up elegantly.
     * Must switch between read and write mode explicitly. This mitigates misuse of the ByteBuffer API (ever forget to call ByteBuffer.flip?). 
-
-## License

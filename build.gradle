@@ -2,6 +2,8 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.3.61'
 }
 
+apply plugin: "maven"
+
 group 'net.nicholasgwong'
 version '1.0-SNAPSHOT'
 
